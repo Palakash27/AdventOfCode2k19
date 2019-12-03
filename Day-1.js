@@ -102,6 +102,24 @@ let input = [
   107333
 ];
 const requiredFuel = craftWeight => Math.floor(craftWeight / 3) - 2;
+const newFuelRequired = craftWeight => {
+  let sum = 0;
+  let fuel = requiredFuel(craftWeight);
+  if (fuel < 0) {
+    return 0;
+  }
+  return fuel + newFuelRequired(fuel);
+};
+console.log("----------------------------------");
+console.log("--------------PART 1-------------");
+console.log("----------------------------------");
 let resultArr = input.map(craftWeight => requiredFuel(craftWeight));
-const result = resultArr.reduce((first, second) => first + second);
+let result = resultArr.reduce((first, second) => first + second);
+console.log(result);
+console.log("----------------------------------");
+console.log("--------------PART 2-------------");
+console.log("----------------------------------");
+
+resultArr = input.map(craftWeight => newFuelRequired(craftWeight));
+result = resultArr.reduce((first, second) => first + second);
 console.log(result);
