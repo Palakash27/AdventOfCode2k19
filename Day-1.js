@@ -119,7 +119,6 @@ console.log(result);
 console.log("----------------------------------");
 console.log("--------------PART 2-------------");
 console.log("----------------------------------");
-
 resultArr = input.map(craftWeight => newFuelRequired(craftWeight));
 result = resultArr.reduce((first, second) => first + second);
 console.log(result);
